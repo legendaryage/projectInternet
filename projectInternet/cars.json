@@ -1,0 +1,30 @@
+[
+    
+    {
+        "brand": "Audi",
+        "model": "Q5",
+        "year": 2022,
+        "price": "$45,600",
+        "image": "images/q5.png",
+        "details": "The Audi Q5 is a luxurious compact SUV offering a refined balance of performance and comfort. Equipped with a turbocharged engine, it provides a smooth, responsive driving experience with premium interior finishes. It also boasts advanced safety features and intuitive tech, including a virtual cockpit. Available at Audi Québec at 1900 Boulevard Laurier Ouest, Quebec City, QC, and Audi West Island, 3170 Boulevard de la Côte-Vertu, Montreal, QC",
+        "page": "audi.html"
+    },
+    {
+        "brand": "BMW",
+        "model": "3 Series",
+        "year": 2023,
+        "price": "$103,500",
+        "image": "images/bmw3series.png",
+        "details": "The BMW 3 Series is a sleek, sporty sedan designed for driving enthusiasts who seek a dynamic performance with everyday practicality. With an engaging handling experience, luxurious interiors, and cutting-edge technology, it stands out in its class. The 3 Series combines classic BMW styling with modern features. You can find it at BMW Sainte-Julie, 1750 Rue Principale, Sainte-Julie, QC, and BMW de Laval, 2850 Boulevard le Carrefour, Laval, QC.",
+        "page": "bmw.html"
+    },
+    {
+        "brand": "Mercedes",
+        "model": "E-Class Executive",
+        "year": 2023,
+        "price": "$56,750",
+        "image": "images/eclass.png",
+        "details": "The Mercedes-Benz E-Class Executive is a sophisticated sedan with an emphasis on luxury, technology, and performance. Featuring a smooth ride, plush interior, and a wealth of tech innovations like a widescreen cockpit and advanced driver assistance systems, the E-Class is perfect for those who demand the finest. Visit Mercedes-Benz of Quebec, 555 Boulevard de l'Aeroport, Quebec City, QC, or Mercedes-Benz Montreal, 3200 Rue Jean-Talon O, Montreal, QC.",
+        "page": "mercedes.html"
+    }
+]

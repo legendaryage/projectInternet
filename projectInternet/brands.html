@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Car Brands - Deutsche Luxus Auto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar" role="complementary">
+            <ul>
+                <li><a href="bmw.html">BMW</a></li>
+                <li><a href="audi.html">Audi</a></li>
+                <li><a href="mercedes.html">Mercedes</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="top-nav">
+                <div class="nav-container">
+                    <!-- Left Section -->
+                    <div class="nav-left">
+                        <img src="images/logo.jpeg" alt="Deutsche Luxus Auto Logo" class="logo">
+                        <h1 class="header-title">Deutsche Luxus Auto</h1>
+                    </div>
+                    <!-- Right Section -->
+                    <div class="nav-right">
+                        <nav aria-label="Main Navigation">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="brands.html">Brands</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <!-- Search Bar -->
+                        <form id="filter-form">
+                            <label for="search">Search by Brand:</label>
+                            <input type="text" id="search" name="search" placeholder="Enter brand (e.g., Audi)">
+                            <span id="error-message" style="color: red; display: none;"></span>
+                        </form>
+                    </div>
+                </div>
+            </header>
+
+          
+            <section class="hero">
+                <div>
+                    <h2>Explore Our Car Brands</h2>
+                    <p>Discover luxury vehicles from top German brands: BMW, Audi, and Mercedes.</p>
+                </div>
+            </section>
+
+            <!--  Search Results Section -->
+            <section class="search-results" style="display: none;">
+                <h2>Search Results</h2>
+                <div id="car-list">
+                    
+                </div>
+            </section>
+
+            <!-- Featured Brands Section -->
+            <section class="brands">
+                <h2>Our Featured Brands</h2>
+                <div class="brand-grid">
+                    <div class="brand-card">
+                        <img src="images/bmwlogo1.jpg" alt="BMW Logo">
+                        <p>BMW</p>
+                        <span>Luxury Cars & Performance</span>
+                        <a href="bmw.html" class="view-details">View BMW Models</a>
+                    </div>
+                    <div class="brand-card">
+                        <img src="images/audilogo1.jpg" alt="Audi Logo">
+                        <p>Audi</p>
+                        <span>Innovation & Technology</span>
+                        <a href="audi.html" class="view-details">View Audi Models</a>
+                    </div>
+                    <div class="brand-card">
+                        <img src="images/mercedeslogo.jpg" alt="Mercedes Logo">
+                        <p>Mercedes</p>
+                        <span>Luxury & Comfort</span>
+                        <a href="mercedes.html" class="view-details">View Mercedes Models</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Contact Info</a></li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+
+    <!--  JavaScript and Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="validation.js"></script>
+</body>
+</html>

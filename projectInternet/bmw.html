@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW</title>
+    <link rel="stylesheet" href="details.css">
+</head>
+<body>
+    <!--In task 5 (next deliv) i will fetch data of car with JSON and then add description leave the right side like that-->
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <ul>
+                <li><a href="bmw.html">BMW</a></li>
+                <li><a href="audi.html">Audi</a></li>
+                <li><a href="mercedes.html">Mercedes</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="top-nav">
+                <div class="nav-left">
+                    <h1>Deutsche Luxus Auto</h1>
+                </div>
+                <div class="nav-right">
+                    <nav>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="brands.html">Brands</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                   
+                </div>
+            </header>
+
+            <section class="hero">
+                <h1>Discover the Latest Car Models</h1>
+                <p>Experience the luxury, style, and performance of our cars.</p>
+            </section>
+
+            <section class="car-details">
+                <h2>The BMW Series 3</h2>
+            
+                <!--Main Image and Gallery -->
+                <div class="details-grid">
+                    <div class="main-image">
+                        <img src="images/P90300374-the-new-bmw-m5-competition-05-2018-2283px.jpg" alt="BMW M5 Competition">
+                    </div>
+                    <div class="gallery">
+                        <img src="images/m5front.jpg" alt="Gallery Image 1">
+                        <img src="images/images (1).jpg" alt="Gallery Image 2">
+                        <img src="images/featured.jpg" alt="Gallery Image 3">
+                    </div>
+
+                    <!-- JSON Description (Deliverable 3) -->
+                    <div id="car-description"></div>
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script src="description-loader.js"></script>
+                </div>
+            
+                <!-- Specifications and iframe -->
+                <div class="details-layout">
+                    <!-- Left: Specifications -->
+                    <div class="specifications">
+                        <h3>Car Specifications</h3>
+                        <div class="spec-grid">
+                            <div class="spec-item">
+                                <img src="images/engine.jpg" alt="Engine Icon">
+                                <strong>Engine Type:</strong> V8 Twin-Turbo
+                            </div>
+                            <div class="spec-item">
+                                <img src="images/hp-transformed.jpeg" alt="Horsepower Icon">
+                                <strong>Horsepower:</strong> 617 hp
+                            </div>
+                            <div class="spec-item">
+                                <img src="images/gas.jpeg" alt="Fuel Icon">
+                                <strong>Fuel Type:</strong> Gasoline
+                            </div>
+                            <div class="spec-item">
+                                <img src="images/dollar-sign-vector.jpg" alt="Price Icon">
+                                <strong>Price:</strong> $103,500
+                            </div>
+                            <div class="spec-item full-width">
+                                
+                                <strong>Description:</strong> The BMW Series 3 is a luxury sedan that delivers thrilling performance, unparalleled comfort, and cutting-edge technology.
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Right: iframe -->
+                    <div class="iframe-container">
+                        <iframe src="https://www.youtube.com/embed/odaWvfJjj34?si=8nh3pq_ZIoPWPPuB" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="reviews">
+                <h3>Customer Reviews</h3>
+                <div class="reviews-container">
+                    <!-- Left: Happy Customer Image -->
+                    <div class="customer-image">
+                        <img src="images/customer.jpg" alt="Happy Customer">
+                    </div>
+            
+                    <!-- Right: Encapsulated Reviews -->
+                    <div class="review-list">
+                        <div class="review-box">
+                            <strong>John Doe</strong>
+                            <p>"The Series 3 is a masterpiece of engineering. It drives like a dream!"</p>
+                            <span>⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="review-box">
+                            <strong>Jane Smith</strong>
+                            <p>"Luxury and performance in one perfect package."</p>
+                            <span>⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="review-box">
+                            <strong>Emily Johnson</strong>
+                            <p>"Absolutely worth every penny. Incredible car."</p>
+                            <span>⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+
+            <footer>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Contact Info</a></li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+
+    <div class="car-section">
+        <button id="fetch-bmw-models">View Other BMW Models!</button>
+        <div id="bmw-models-display" class="loading-text"></div>
+      </div>
+<!--Fetching from API with AJAX-->
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const button = document.getElementById("fetch-bmw-models");
+    const displayDiv = document.getElementById("bmw-models-display");
+
+    button.addEventListener("click", function() {
+        const apiURL = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/bmw?format=json";
+        displayDiv.textContent = "Loading..."; 
+
+        fetch(apiURL)
+            .then(response => response.json())
+            .then(data => {
+                displayDiv.textContent = ""; 
+                const models = data.Results.map(result => result.Model_Name);
+                if (models.length > 0) {
+                    const ul = document.createElement("ul");
+                    models.forEach(model => {
+                        const li = document.createElement("li");
+                        li.textContent = model;
+                        ul.appendChild(li);
+                    });
+                    displayDiv.appendChild(ul);
+                } else {
+                    displayDiv.textContent = "No models found.";
+                }
+            })
+            .catch(error => {
+                displayDiv.textContent = "Error fetching data: " + error.message;
+            });
+    });
+});
+</script>
+
+<style>
+    /* Style for the section containing the button and model list */
+    .car-section {
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      width: 300px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    .car-section button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  
+    .car-section button:hover {
+      background-color:black;
+    }
+  
+   
+    .loading-text {
+      text-align: center;
+      font-size: 18px;
+      font-style: italic;
+      color: black;
+    }
+  
+    .model-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+  
+    .model-list li {
+      background-color: #f0f0f0;
+      padding: 8px;
+      margin-bottom: 5px;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+  
+  
+    #models-display, #bmw-models-display, #audi-models-display, #mercedes-models-display {
+      padding: 0;
+      margin-top: 20px;
+    }
+  </style>
+  
+
+</body>
+</html>
